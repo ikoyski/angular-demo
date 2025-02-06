@@ -13,10 +13,7 @@ import { PrimaryButtonComponent } from '../../../components/primary-button/prima
 	    			<span class="text-lg">Total</span>
 	    			<span class="text-lg font-bold">{{'PHP ' + total()}}</span>
 	    		</div>
-    		@if (cartService.cart().length > 0) {
-	  			<app-primary-button 
-		    		label="Proceed to checkout" />
-	  		}	
+	  			<app-primary-button label="Proceed to checkout" />
 	    	</div>
 	    </div>	
   	`,
@@ -27,9 +24,9 @@ export class OrderSummaryComponent {
 	cartService = inject(CartService);
 	
 	total = computed(() => {
-		let total = 0;
-		for (const item of this.cartService.cart()) {
-			total += item.price;
+		var total = 0.00;
+		for (const cartItem of this.cartService.cartItems()) {
+			total += cartItem.quantity * cartItem.product.price;
 		}
 		return total;
 	});

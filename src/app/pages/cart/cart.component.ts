@@ -9,8 +9,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 	template: `
 	    <div class="p-6 flex flex-col gap-4">
 	    	<h2 class="text-2xl">Shopping Cart</h2>
-	@if (cartService.cart().length > 0) {
-	    @for (item of cartService.cart(); track item.id) {
+	@if (cartService.cartItems().length > 0) {
+	    @for (item of cartService.cartItems(); track item.product) {
 			<app-cart-item [item]="item" />
 		}
 			<app-order-summary />

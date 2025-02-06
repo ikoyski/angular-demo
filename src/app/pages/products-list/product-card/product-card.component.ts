@@ -1,6 +1,6 @@
 import { Component, input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Product } from '../../../models/products.model';
+import { Product } from '../../../models/product.model';
 import { PrimaryButtonComponent } from '../../../components/primary-button/primary-button.component';
 import { ButtonComponent } from '../../../components/button/button.component';
 import { CartService } from '../../../services/cart.service';
@@ -27,7 +27,7 @@ import { CartService } from '../../../services/cart.service';
   		@if (product().stock) {
   			<app-primary-button 
   				label="Add to Cart" class="mt-3"
-  				(btnClicked)="cartService.addToCart(product())" />
+  				(btnClicked)="cartService.addCartItem(product(), 1)" />
   		} @else {
 			<app-button 
   				label="Out of stock" class="mt-3" />
