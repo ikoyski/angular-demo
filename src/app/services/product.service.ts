@@ -9,7 +9,7 @@ export class ProductService {
 	products = signal<Product[]>([]);
 
 	async fetchProducts() {
-		let res = await fetch('https://fakestoreapi.com/products/category/electronics');
+		let res = await fetch('https://fakestoreapi.com/products');
 		let data = await res.json();
 		this.products.set(data)
 		

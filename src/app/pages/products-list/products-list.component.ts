@@ -6,7 +6,8 @@ import { ProductService } from '../../services/product.service';
 	selector: 'app-products-list',
 	imports: [ProductCardComponent],
 	template: `
-   		<div class="p-8 grid grid-cols-2 gap-4">
+   		<div class="p-8 gap-4 grid 
+   			grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
    		@for (product of productService.products(); track product.id) {
 			<app-product-card [product]="product" />
 		} 
