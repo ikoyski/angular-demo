@@ -10,12 +10,12 @@ import { CartService } from '../../../services/cart.service';
 	imports: [ButtonComponent, RouterLink, FormsModule],
 	template: `
     	<div class="bg-white shadow-md rounded-xl p-6 flex gap-4 items-top">
-    		<a routerLink="/product/{{item().product.id}}" title="{{item().product.title}}" >
+    		<a routerLink="/products/{{item().product.id}}" title="{{item().product.title}}" >
     			<img [src]="item().product.image" class="w-[50px] h-[50px] object-contain" />
     		</a>
     		<div class="flex flex-col">
     			<span class="text-md font-bold">
-    				<a routerLink="/product/{{item().product.id}}" title="{{item().product.title}}" >
+    				<a routerLink="/products/{{item().product.id}}" title="{{item().product.title}}" >
     					{{ item().product.title }}
     				</a>
     			</span>

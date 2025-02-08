@@ -11,7 +11,7 @@ export class ProductService {
 	async fetchProducts() {
 		let res = await fetch('https://fakestoreapi.com/products');
 		let data = await res.json();
-		this.products.set(data)
+		this.products.set(data);
 		
 		/* set random stock value because fake data does not have it */ 
 		let min = Math.ceil(0);
@@ -22,6 +22,6 @@ export class ProductService {
 			}
 		}
 	}
-
+	
 	constructor() { }
 }

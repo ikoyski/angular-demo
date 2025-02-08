@@ -15,7 +15,9 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 		}
 			<app-order-summary />
 	} @else {
-			<div class="mx-auto">Cart is empty</div>
+			<div class="bg-white shadow-md rounded-xl p-6 flex gap-4 items-top">
+				<div class="mx-auto">Your cart is empty</div>
+			</div>
 	}
 			
 	    </div>	    
