@@ -21,7 +21,7 @@ import { CartService } from '../../../services/cart.service';
     			</span>
     			<span class="text-sm">{{ 'PHP ' + item().product.price }}</span>
     			<div class="flex text-sm items-center">
-	    			Qty: &nbsp; <input type="number" class="border w-13 px-1 text-right" [(ngModel)]="item().quantity" />&nbsp; 
+	    			Quantity: &nbsp; <input type="number" class="border w-13 p-1 text-right" [(ngModel)]="item().quantity" />&nbsp; 
 		    		<app-button label="Update" (btnClicked)="cartService.updateCartItemQuantity(item().product, item().quantity)" />
 		    	</div>    		
     		</div>
