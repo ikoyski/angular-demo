@@ -1,10 +1,10 @@
 {
-  "name": "angular-demo",
+  "name": "angular-store",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration=production --output-path docs --base-href /angular-demo/ && mv docs/browser/* docs/ && rmdir docs/browser && cp docs/index.html docs/404.html",
+    "build": "ng build --configuration=production --output-path docs --base-href /angular-store/ && mv docs/browser/* docs/ && rmdir docs/browser && cp docs/index.html docs/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
