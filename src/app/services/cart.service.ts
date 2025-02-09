@@ -8,12 +8,16 @@ import { CartItem } from '../models/cart-item.model';
 export class CartService {
 
 	cartItems = signal<CartItem[]>([]);
+	
+	maxItemQuantity = 50;
 
 	addCartItem(product: Product, quantity: number) {
 		if (this.cartItems().find(item => item.product.id === product.id) !== undefined) {
 			let itemIndex = this.cartItems().findIndex(item => item.product.id === product.id);
-			this.cartItems()[itemIndex].quantity += quantity;
-			this.cartItems.set([...this.cartItems()]);
+			if ((this.cartItems()[itemIndex].quantity + quantity) <= this.maxItemQuantity) {
+				this.cartItems()[itemIndex].quantity += quantity;
+				this.cartItems.set([...this.cartItems()]);
+			}
 		} else {
 			this.cartItems.set([...this.cartItems(), {
 				"product": product,
@@ -24,10 +28,12 @@ export class CartService {
 
 	updateCartItemQuantity(product: Product, quantity: number) {
 		if (quantity > 0) {
-			if (this.cartItems().find(item => item.product.id === product.id) !== undefined) {
-				let itemIndex = this.cartItems().findIndex(item => item.product.id === product.id);
-				this.cartItems()[itemIndex].quantity = quantity;
-				this.cartItems.set([...this.cartItems()]);
+			if (quantity <= this.maxItemQuantity) {
+				if (this.cartItems().find(item => item.product.id === product.id) !== undefined) {
+					let itemIndex = this.cartItems().findIndex(item => item.product.id === product.id);
+					this.cartItems()[itemIndex].quantity = quantity;
+					this.cartItems.set([...this.cartItems()]);
+				}
 			}
 		} else {
 			this.removeCartItem(product.id);
