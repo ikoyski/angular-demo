@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { PrimaryButtonComponent } from '../../components/primary-button/primary-button.component';
+import { HotButtonComponent } from '../../components/hot-button/hot-button.component';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
 	selector: 'app-products-detail',
-	imports: [PrimaryButtonComponent, ButtonComponent, RouterLink],
+	imports: [PrimaryButtonComponent, ButtonComponent, HotButtonComponent, RouterLink],
 	template: `
 	@for (product of productService.products(); track product.id) {
 		@if (product.id == productId) {
@@ -27,6 +28,9 @@ import { ProductService } from '../../services/product.service';
 		  			</div>
 		  			
 		  		@if (product.stock) {
+					<app-hot-button 
+		  				label="Buy Now" class="mt-3"
+		  				(btnClicked)="cartService.addCartItem(product, 1)" routerLink="/cart" />
 		  			<app-primary-button 
 		  				label="Add to Cart" class="mt-3"
 		  				(btnClicked)="cartService.addCartItem(product, 1)" />
