@@ -1,7 +1,7 @@
 # Angular Store
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
-Published on Github pages: https://ikoyski.github.io/angular-demo/
+Published on Github pages: https://ikoyski.github.io/store/
 
 ## Development server
 
