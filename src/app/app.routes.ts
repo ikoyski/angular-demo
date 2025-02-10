@@ -6,6 +6,8 @@ import { LoginComponent } from './pages/profiles/login/login.component';
 import { SignupComponent } from './pages/profiles/signup/signup.component';
 import { ChangePasswordComponent } from './pages/profiles/change-password/change-password.component';
 import { ForgotPasswordComponent } from './pages/profiles/forgot-password/forgot-password.component';
+import { OrdersListComponent } from './pages/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './pages/orders-detail/orders-detail.component';
 
 export const routes: Routes = [
 	{
@@ -55,5 +57,17 @@ export const routes: Routes = [
 		title: 'Forgot Password',
 		pathMatch: 'full',
 		component: ForgotPasswordComponent
-	}
+	},
+	{
+		path: 'orders',
+		title: 'Orders',
+		pathMatch: 'full',
+		component: OrdersListComponent
+	},
+	{
+		path: 'orders/:id',
+		title: 'Order In Detail',
+		pathMatch: 'full',
+		component: OrdersDetailComponent
+	},
 ];

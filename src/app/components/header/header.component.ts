@@ -7,7 +7,7 @@ import { CartService } from '../../services/cart.service';
 	selector: 'app-header',
 	imports: [PrimaryButtonComponent, RouterLink],
 	template: `
-	    <div class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center">
+	    <div class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center top-0 sticky z-10">
 	    	<a class="text-xl" routerLink="/">Angular Store</a>
 	    	<app-primary-button 
 	    		[label]="'Cart (' + itemCount() + ')'"

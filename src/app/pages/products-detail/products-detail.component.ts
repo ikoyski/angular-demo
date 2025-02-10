@@ -23,7 +23,7 @@ import { ProductService } from '../../services/product.service';
 		  				{{product.title}}
 		  			</span>
 		  			<span>{{ 'PHP ' + product.price}}</span>
-		  			<div class="text-md my-5">
+		  			<div class="text-md my-5 text-justify">
 		  				{{product.description}}
 		  			</div>
 		  			
