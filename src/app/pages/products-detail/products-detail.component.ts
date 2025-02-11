@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PrimaryButtonComponent } from '../../components/primary-button/primary-button.component';
-import { HotButtonComponent } from '../../components/hot-button/hot-button.component';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
 	selector: 'app-products-detail',
-	imports: [PrimaryButtonComponent, ButtonComponent, HotButtonComponent, RouterLink],
+	imports: [PrimaryButtonComponent, ButtonComponent], 
 	template: `
 	@for (product of productService.products(); track product.id) {
 		@if (product.id == productId) {
@@ -27,10 +26,7 @@ import { ProductService } from '../../services/product.service';
 		  				{{product.description}}
 		  			</div>
 		  			
-		  		@if (product.stock) {
-					<app-hot-button 
-		  				label="Buy Now" class="mt-3"
-		  				(btnClicked)="cartService.addCartItem(product, 1)" routerLink="/cart" />
+		  		@if (product.stock) {					
 		  			<app-primary-button 
 		  				label="Add to Cart" class="mt-3"
 		  				(btnClicked)="cartService.addCartItem(product, 1)" />
@@ -39,7 +35,7 @@ import { ProductService } from '../../services/product.service';
 		  				label="Out of stock" class="mt-3" />
 				}	  				
 		  		</div>
-		  		<span class="absolute top-2 right-3 text-sm font-bold" 
+		  		<span class="absolute top-2 right-3 font-bold" 
 		  			[class]="product.stock ? 'text-green-500' : 'text-red-500'">
 		  		@if (product.stock) {
 					In stock
